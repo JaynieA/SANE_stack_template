@@ -14,4 +14,8 @@ APP.listen( PORT, function() {
   console.log( 'Server listening on', PORT );
 }); // end listen
 
+//routers
+let main = require( './routers/main' );
+APP.use( '/main', main );
+
 module.exports = APP;

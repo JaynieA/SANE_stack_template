@@ -6,7 +6,7 @@ if(process.env.DATABASE_URL !== undefined) {
     connString = process.env.DATABASE_URL;
     pg.defaults.ssl = true;
 } else {
-    connString = 'postgres://localhost:5432/server_template';
+    connString = 'postgres://localhost:5432/pg_server_template';
 }
 
 console.log("connString set to: ", connString);
