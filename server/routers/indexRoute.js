@@ -7,7 +7,7 @@ const PATH = require('path');
 const ROUTER = EXPRESS.Router();
 
 ROUTER.get('/', function(req, res) {
-  var homePath = path.join(__dirname, '../../public/views/index.html');
+  var homePath = PATH.join(__dirname, '../../public/views/index.html');
   res.sendFile(homePath);
 });
 
