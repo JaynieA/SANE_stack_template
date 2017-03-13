@@ -1,3 +1,7 @@
+/**
+ * Contains connection information
+ * @module config/connection
+ */
 const PG = require('pg');
 let connString = '';
 

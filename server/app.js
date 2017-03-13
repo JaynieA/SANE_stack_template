@@ -9,10 +9,14 @@ const CONNECTION = require( './config/connection' );
 APP.use(EXPRESS.static( 'public' ));
 APP.use(BODYPARSER.urlencoded( { extended: true } ));
 
-//base url
+//Spin up server
 APP.listen( PORT, function() {
   console.log( 'Server listening on', PORT );
 }); // end listen
+
+//Base URL
+let indexRoute = require('./routers/indexRoute');
+APP.use('/', indexRoute);
 
 //routers
 let main = require( './routers/main' );
