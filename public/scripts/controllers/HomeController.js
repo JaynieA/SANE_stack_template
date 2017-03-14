@@ -4,4 +4,5 @@ MY_APP.controller( 'HomeController', [ '$scope', '$http', 'mainFactory',
   console.log('Number from mainFactory-->',mainFactory.number);
   mainFactory.number++;
   console.log('Added to number in home. Current #:', mainFactory.number);
+  $scope.number = mainFactory.number;
 }]); // end HomeController
