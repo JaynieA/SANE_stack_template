@@ -1,12 +1,11 @@
 <!-- Home View -->
 <h2>Home</h2>
-<p>Added one: {{ home.number }}</p>
-
-<button ng-click="home.sayHi()">Greet Me</button>
-
-<p>{{greeting[0].text}}</p>
-
-
-<p ng-show="home.greeting.visible">
-{{home.greeting.text}}
-</p>
+<!-- Number Elements -->
+<p>Number: {{ home.number }}</p>
+<button ng-click="home.addOne()">Add One</button>
+<hr>
+<!-- Greeting Elements -->
+<button ng-click="home.getGreetings()">Greet Me</button>
+<div>
+  <p ng-repeat="greeting in home.greetings">{{ greeting }}</p>
+</div>

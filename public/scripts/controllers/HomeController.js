@@ -1,20 +1,36 @@
 MY_APP.controller( 'HomeController', [ '$http', 'mainFactory',
  function( $http, mainFactory ) {
   console.log('in HomeController');
-  let _this = this;
-  //NOTE: the following demonstrates storing the number in a service
-  console.log('Number from mainFactory-->', mainFactory.number);
-  //Add 1 to the number
-  mainFactory.number++;
-  console.log('Added to number in home. Current #:', mainFactory.number);
-  _this.number = mainFactory.number;
-  //Define greeting object
-  _this.greeting = {
-    text: '',
-    visible: false,
-  }; // end message
 
-  _this.sayHi = function() {
+  let _this = this;
+  //Declare Number from Service
+  _this.number = mainFactory.number;
+
+  let displayGreetings = function(array) {
+    console.log('in displayGreetings');
+    //Define greetings array for storage
+    let greetings = [];
+    //Iterate through array objects
+    for (let i in array) {
+      let {
+        text: greeting,
+      } = array[i];
+      //Push greeting text into greetings array
+      greetings.push(greeting);
+    } // end for
+    //Make greetings visible on the dom
+    _this.greetings = greetings;
+  }; // end displayGreetings
+
+  _this.addOne = function() {
+    console.log('in addOne');
+    //Add one to the number in the service
+    mainFactory.number++;
+    //Add one to number displayed
+    _this.number++;
+  }; // end addOne
+
+  _this.getGreetings = function() {
     //GET text string from server
     $http({
       method: 'GET',
@@ -22,8 +38,7 @@ MY_APP.controller( 'HomeController', [ '$http', 'mainFactory',
     }).then(function(response) {
       console.log('SUCCESS-->', response.data.results);
       //Display greeting
-      _this.greeting.visible = true;
-      _this.greeting.text = response.data.results[0].text;
+      displayGreetings(response.data.results);
     }).catch(function(err) {
       console.log('ERROR-->', err);
     }); // end $http
