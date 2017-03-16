@@ -8,6 +8,7 @@ const CONNECTION = require( './config/connection' );
 //middleware
 APP.use(EXPRESS.static( 'public' ));
 APP.use(BODYPARSER.urlencoded( { extended: true } ));
+APP.use(BODYPARSER.json());
 
 //Spin up server
 APP.listen( PORT, function() {
