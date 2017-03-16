@@ -1,6 +1,7 @@
-MY_APP.controller( 'SecondaryController', [ '$scope', '$http', 'mainFactory',
- function( $scope, $http, mainFactory ) {
+MY_APP.controller( 'SecondaryController', [ '$http', 'mainFactory',
+ function( $http, mainFactory ) {
   console.log('in SecondaryController');
   console.log('mainFactory # from secondary-->', mainFactory.number);
-  $scope.number = mainFactory.number;
+  let _this = this;
+  _this.number = mainFactory.number;
 }]); // end HomeController

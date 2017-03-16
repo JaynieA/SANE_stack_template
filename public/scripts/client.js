@@ -6,10 +6,12 @@ MY_APP.config([ '$routeProvider', function( $routeProvider ){
   .when( '/home', {
     templateUrl: './views/partials/home.html',
     controller: 'HomeController',
+    controllerAs: 'home',
   })
   .when( '/secondary', {
     templateUrl: './views/partials/secondary.html',
     controller: 'SecondaryController',
+    controllerAs: 'secondary',
   })
   .otherwise({
     redirectTo: 'home'
