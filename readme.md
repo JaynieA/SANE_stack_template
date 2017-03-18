@@ -1,8 +1,8 @@
-#Description
+# Description
 
 Template server structure using Angular, Node.js, Express, and PostgreSQL.
 
-##Technologies
+## Technologies
 
 * HTML5
 * JavaScript
